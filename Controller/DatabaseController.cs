@@ -1,6 +1,6 @@
-﻿using Workshop2.Model;
+﻿using RPN_Calculator.Model;
 
-namespace Workshop2.Controller
+namespace RPN_Calculator.Controller
 {
     public class DatabaseController
     {

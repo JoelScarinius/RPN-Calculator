@@ -1,4 +1,4 @@
-﻿namespace Workshop2.View
+﻿namespace RPN_Calculator.View
 {
     public class MainView
     {

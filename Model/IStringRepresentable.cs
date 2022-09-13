@@ -1,4 +1,4 @@
-﻿namespace Workshop2
+﻿namespace RPN_Calculator
 {
     public interface IStringRepresentable
     {

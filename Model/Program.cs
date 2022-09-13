@@ -1,6 +1,6 @@
-﻿using Workshop2.Model;
+﻿using RPN_Calculator.Model;
 
-namespace Workshop2
+namespace RPN_Calculator
 {
     public class Program : IStringRepresentable
     {

@@ -5,16 +5,14 @@ namespace RPN_Calculator.Controller
     public class CalculatorController
     {
         public MainView View { get; protected set; }
-        public DatabaseController DbController { get; protected set; }
         private bool isDone;
         private byte option;
         /// <param name="vy">Mainview</param>
         /// <param name="dbHanterare">Databasecontroller</param>
 
-        public CalculatorController(MainView view, DatabaseController dbController)
+        public CalculatorController(MainView view)
         {
             View = view;
-            DbController = dbController;
             isDone = false;
             Run();
         }

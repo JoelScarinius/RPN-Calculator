@@ -1,5 +1,4 @@
 ﻿using RPN_Calculator.Controller;
-using RPN_Calculator.Model;
 using RPN_Calculator.View;
 
 namespace RPN_Calculator
@@ -8,13 +7,13 @@ namespace RPN_Calculator
     {
         static void Main(string[] args)
         {
-            Database database = new Database();
+            //Database database = new Database();
 
-            DatabaseController dbController = new DatabaseController(database);
+            //DatabaseController dbController = new DatabaseController(database);
 
             MainView view = new MainView();
 
-            CalculatorController controller = new CalculatorController(view, dbController);
+            CalculatorController controller = new CalculatorController(view);
 
 
         }

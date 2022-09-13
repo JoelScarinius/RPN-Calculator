@@ -2,7 +2,7 @@
 
 namespace RPN_Calculator.Controller
 {
-    public class MainController
+    public class CalculatorController
     {
         public MainView View { get; protected set; }
         public DatabaseController DbController { get; protected set; }
@@ -11,7 +11,7 @@ namespace RPN_Calculator.Controller
         /// <param name="vy">Mainview</param>
         /// <param name="dbHanterare">Databasecontroller</param>
 
-        public MainController(MainView view, DatabaseController dbController)
+        public CalculatorController(MainView view, DatabaseController dbController)
         {
             View = view;
             DbController = dbController;

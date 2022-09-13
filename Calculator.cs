@@ -14,7 +14,7 @@ namespace RPN_Calculator
 
             MainView view = new MainView();
 
-            MainController controller = new MainController(view, dbController);
+            CalculatorController controller = new CalculatorController(view, dbController);
 
 
         }

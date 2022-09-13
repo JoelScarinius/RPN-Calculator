@@ -1,6 +1,6 @@
 ﻿namespace RPN_Calculator
 {
-    internal class Program
+    internal class Calculator
     {
         static void Main(string[] args)
         {

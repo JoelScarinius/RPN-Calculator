@@ -7,13 +7,11 @@ namespace RPN_Calculator
     {
         static void Main(string[] args)
         {
-            //Database database = new Database();
-
-            //DatabaseController dbController = new DatabaseController(database);
-
             MainView view = new MainView();
 
             CalculatorController controller = new CalculatorController(view);
+
+
 
 
         }

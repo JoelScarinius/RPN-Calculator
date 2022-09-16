@@ -19,7 +19,10 @@ namespace RPN_Calculator.Controller
         private void Run()
         {
             while (!isDone)
+            {
                 DisplayStartMessage();
+                //Token tokens = new Token()
+            }
             View.WriteLine("\nThe user exited the application");
         }
         private void DisplayStartMessage()
@@ -28,8 +31,11 @@ namespace RPN_Calculator.Controller
             View.Write("Enter RPN-expression <return> (empty string = exit): ");
 
             string? expression = View.ReadLine();
-            //if (byte.TryParse(expression, out option))
+            string[] expressionList = expression.Split(' ', expression.Length);
+            //foreach (string in expressionList)
             //{
+            //    int.TryParse(expressionList[i], out int intTokens);
+            //}
             View.Clear();
             if (expression == "") isDone = true;
             DisplayPause();

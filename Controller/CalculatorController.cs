@@ -6,7 +6,8 @@ namespace RPN_Calculator.Controller
     {
         public MainView View { get; protected set; }
         private bool isDone;
-        private byte option;
+        private string? expression;
+
         /// <param name="vy">Mainview</param>
         /// <param name="dbHanterare">Databasecontroller</param>
 
@@ -21,7 +22,11 @@ namespace RPN_Calculator.Controller
             while (!isDone)
             {
                 DisplayStartMessage();
+                ReadInput(ref expression);
+                // Kolla efer operatorer först innan du gör tryparse
                 //Token tokens = new Token()
+                DisplayPause();
+                View.Write("Result: ");
             }
             View.WriteLine("\nThe user exited the application");
         }
@@ -29,18 +34,22 @@ namespace RPN_Calculator.Controller
         {
             View.Clear();
             View.Write("Enter RPN-expression <return> (empty string = exit): ");
+        }
+        private void ReadInput(ref string? expression)
+        {
+            View.Clear();
+            expression = View.ReadLine();
+            if (expression == "") isDone = true;
+        }
 
-            string? expression = View.ReadLine();
+        private void ValidateInput(string expression)
+        {
             string[] expressionList = expression.Split(' ', expression.Length);
             //foreach (string in expressionList)
             //{
-            //    int.TryParse(expressionList[i], out int intTokens);
+            //    if (int.TryParse(expressionList[i], out int intTokens)); //push operand
+            //    else; //push operator
             //}
-            View.Clear();
-            if (expression == "") isDone = true;
-            DisplayPause();
-            //}
-            View.Write("Result: ");
         }
         private void DisplayPause()
         {

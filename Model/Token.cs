@@ -2,14 +2,10 @@
 {
     public class Token
     {
-        // Stack variabel??
-        public static Stack<Token> tokens;
+        private Token token;
 
-        public Token()
-        {
-            Token.tokens = tokens;
-            //tokens.Push
-        }
+        public static Stack<Token> tokens;
+        public virtual Token ConvertToToken(string expression) { return token; }
 
         /*
         1. Användaren skriver in en expression

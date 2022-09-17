@@ -2,8 +2,25 @@
 {
     public class Operator : Token
     {
-        public Operator(Stack<Token> tokens) : base(tokens)
-        {
-        }
+        //private Operator summationOperator;
+        //public Operator TokenOperator { get; set; }
+
+        //public Operator(Operator tokenOperator)
+        //{
+        //    TokenOperator = tokenOperator;
+        //}
+
+        //public override void GetToken<Token>(Token token)
+        //{
+        //    Operator operatorToken = new Operator(token);
+        //}
+        //public Operator(Stack<Token> tokens) : base(tokens)
+        //{
+        //}
+
+        //public override string ToString()
+        //{
+        //}
+
     }
 }

@@ -2,8 +2,9 @@
 {
     public class Operand : Token
     {
-        public Operand(Stack<Token> tokens) : base(tokens)
-        {
-        }
+        //public Operand(Stack<Token> tokens) : base(tokens)
+        //{
+        //}
+
     }
 }

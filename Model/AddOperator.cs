@@ -2,8 +2,8 @@
 {
     public class AddOperator : Operator
     {
-        public AddOperator(Stack<Token> tokens) : base(tokens)
-        {
-        }
+        //public AddOperator(Stack<Token> tokens) : base(tokens)
+        //{
+        //}
     }
 }

@@ -5,10 +5,12 @@ namespace RPN_Calculator.Controller
 {
     public class CalculatorController
     {
+        private Operator operators;
         public MainView View { get; protected set; }
         private bool isDone;
         private string? expression;
         private string[] expressionList;
+        private double result = 0;
 
         /// <param name="view">Mainview</param>
 
@@ -17,6 +19,7 @@ namespace RPN_Calculator.Controller
             View = view;
             isDone = false;
             Run();
+            //operators = new Operator();
         }
         private void Run()
         {
@@ -25,13 +28,16 @@ namespace RPN_Calculator.Controller
                 View.Clear();
                 DisplayStartMessage();
                 ReadInput(ref expression);
-                if (expression == "") isDone = true;
+                if (expression == "")
+                {
+                    isDone = true;
+                    continue;
+                }
                 TrimInput(expression, ref expressionList);
                 ValidateInput(expressionList);
                 // Kolla efer operatorer först innan du gör tryparse
                 //Token tokens = new Token()
                 DisplayPause();
-                View.Write("Result: \n");
             }
             View.WriteLine("\nThe user exited the application");
         }
@@ -53,9 +59,7 @@ namespace RPN_Calculator.Controller
 
         private void ValidateInput(string[] expressionList)
         {
-            Operand operand = new Operand();
             Operator operators = new Operator();
-            AddOperator addOperator = new AddOperator(expression);
             Token token = operators;
 
             foreach (string expression in expressionList)
@@ -64,26 +68,37 @@ namespace RPN_Calculator.Controller
                 switch (expression)
                 {
                     case "+":
-                        addOperator = new AddOperator(expression);
+                        AddOperator addOperator = new AddOperator(expression);
                         token = addOperator;
                         Token.tokens.Push(token);
                         break;
-                    case "-": break;
-                    case "*": break;
-                    case "/": break;
-                    case "%": break;
+                    case "-":
+                        SubtractOperator subtractOperator = new SubtractOperator(expression);
+                        token = subtractOperator;
+                        Token.tokens.Push(token);
+                        break;
+                    case "*":
+                        MultiplyOperator multiplyOperator = new MultiplyOperator(expression);
+                        token = multiplyOperator;
+                        Token.tokens.Push(token);
+                        break;
+                    case "/":
+                        DivideOperator divideOperator = new DivideOperator(expression);
+                        token = divideOperator;
+                        Token.tokens.Push(token);
+                        break;
+                    case "%":
+
+                        ModulusOperator modulusOperator = new ModulusOperator(expression);
+                        token = modulusOperator;
+                        Token.tokens.Push(token);
+                        break;
                     default:
                         try
                         {
-                            if (int.TryParse(expression, out int operand1))
+                            if (double.TryParse(expression, out double operand2))
                             {
-                                operand = new Operand(operand1);
-                                token = operand;
-                                Token.tokens.Push(token);
-                            }
-                            else if (double.TryParse(expression, out double operand2))
-                            {
-                                operand = new Operand(operand2);
+                                Operand operand = new Operand(operand2);
                                 token = operand;
                                 Token.tokens.Push(token);
                             }
@@ -98,32 +113,35 @@ namespace RPN_Calculator.Controller
                 }
             }
 
-            //if (addOperator.IsValidOperator(expression))
-            //{
-            //    Token.tokens.Push(token);
-            //}
-            //else if (addOperand.IsValidOperator(expression))
-            //    //if (Token.tokens.Pop() == operators) // Kolla vad som poppas och jämför det för att göra rätt utsskrift.
-            // Polymorfism när man poppar.
-            addOperator = (AddOperator)Token.tokens.Pop();
-            View.WriteLine(addOperator.ToString()); //Skriver ut plustecknet
-            operand = (Operand)Token.tokens.Pop();
-            View.WriteLine(operand.ToString()); //Skriver ut plustecknet
-            operand = (Operand)Token.tokens.Pop();
-            View.WriteLine(operand.ToString()); //Skriver ut plustecknet
-            //operators = addOperator;
-            //addOperator = (AddOperator)operators;     
+            double result = AlltDengörALLt();
+            View.PrintResult(result);
+            result = 0;
         }
-        //public int Sum(double operand1, double operand2)
-        //{
-        //        Operand operand = new Operand(operand1);
-        //        Token token = Token.tokens.Pop();
-        //        token = operand;
-        //        operand1 = operand.GetOperand();
-        //        token = Token.tokens.Pop();
-        //        operand2 = operand.GetOperand();
-        //    return x + y;
-        //}
+
+        private double AlltDengörALLt()
+        {
+            Token op = Token.tokens.Pop();
+            //Operand operand = new Operand();
+
+            //View.WriteLine(op.GetType().ToString());
+            if (typeof(Operand) == op.GetType())
+            {
+                Operand operand = (Operand)op;
+                return operand.GetOperand();
+            }
+            else
+            {
+                operators = (Operator)op;
+                //View.WriteLine(operators.GetType().ToString());
+
+                double rightOperand = AlltDengörALLt();
+                double leftOperand = AlltDengörALLt();
+
+                result += operators.Calculate(leftOperand, rightOperand);
+            }
+            return result;
+        }
+
         private void DisplayPause()
         {
             View.WriteLine("Press \"Enter\" to continue...");

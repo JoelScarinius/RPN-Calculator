@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Workshop3.IO
+﻿namespace Workshop3.IO
 {
     /// <summary>
     /// Represents a class that can write to a text file.

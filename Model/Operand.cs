@@ -2,14 +2,27 @@
 {
     public class Operand : Token
     {
-        //public Operand(Stack<Token> tokens) : base(tokens)
-        //{
-        //}
-        //public Operand(Token token) : base(token)
-        //{
-        //}
-        //public Operand(string expression) : base(expression)
-        //{
-        //}
+        private int intOperand;
+        private double doubleOperand;
+        private bool validString;
+
+        public Operand() { }
+
+        public Operand(int intOperand)
+        {
+            this.intOperand = intOperand;
+        }
+        public Operand(double doubleOperand)
+        {
+            this.doubleOperand = doubleOperand;
+        }
+
+        public int GetOperand() => intOperand;
+        public double GetDoubleOperand() => doubleOperand;
+
+        public override string ToString()
+        {
+            return $"{intOperand}";
+        }
     }
 }

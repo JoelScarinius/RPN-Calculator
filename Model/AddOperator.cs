@@ -2,14 +2,16 @@
 {
     public class AddOperator : Operator
     {
-        //public AddOperator(Stack<Token> tokens) : base(tokens)
-        //{
-        //}
-        //public AddOperator(Token token) : base(token)
-        //{
-        //}
-        //public AddOperator(string expression) : base(expression)
-        //{
-        //}
+        private string addOperator;
+        public AddOperator(string expression)
+        {
+            addOperator = expression;
+        }
+
+        public override string ToString()
+        {
+            return $"{addOperator}";
+        }
+
     }
 }

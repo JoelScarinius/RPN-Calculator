@@ -54,9 +54,9 @@ namespace RPN_Calculator.Controller
         {
             foreach (string expression in expressionList)
             {
-                SummationOperator sumOperator = new SummationOperator();
-
-                Token token = sumOperator.ConvertToToken(expression);
+                SummationOperator sumOperator = new SummationOperator(expression);
+                Token token = new Token();
+                //token = sumOperator.ConvertToToken(expression);
                 Token.tokens.Push(token);
                 View.WriteLine(Token.tokens.Pop().ToString());
 

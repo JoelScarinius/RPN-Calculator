@@ -2,6 +2,14 @@
 {
     public class SummationOperator : Operator
     {
+        public SummationOperator(string expression) : base()
+        {
+        }
+
+        //public SummationOperator(Token token) : base(token)
+        //{
+        //}
+
         //private Operator summationOperator;
 
         //public override string ToString()

@@ -2,7 +2,18 @@
 {
     public class Token
     {
+        private string stringToken;
+        private int intToken;
         private Token token;
+        public Token()
+        {
+            //intToken = 0;
+            //stringToken = expression;
+
+        }
+
+        //public int GetSetInt { get; set; }
+        //public string GetSetString { get; set; }
 
         public static Stack<Token> tokens;
         public virtual Token ConvertToToken(string expression) { return token; }

@@ -21,6 +21,11 @@
         //public override string ToString()
         //{
         //}
-
+        //public Operator(Token token) : base(token)
+        //{
+        //}
+        //public Operator(string expression) : base(expression)
+        //{
+        //}
     }
 }

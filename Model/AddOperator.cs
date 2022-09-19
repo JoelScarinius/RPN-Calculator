@@ -5,5 +5,11 @@
         //public AddOperator(Stack<Token> tokens) : base(tokens)
         //{
         //}
+        //public AddOperator(Token token) : base(token)
+        //{
+        //}
+        //public AddOperator(string expression) : base(expression)
+        //{
+        //}
     }
 }

@@ -8,12 +8,15 @@
             modulusOperator = expression;
         }
 
-        public override double Calculate(double operand1, double operand2)
+        public double Process(IStack stack)
         {
-            return operand1 % operand2;
+            double operand2 = stack.Pop().Process(stack);
+            double operand1 = stack.Pop().Process(stack);
+            double sum = operand1 % operand2;
+            return sum;
         }
 
-        public override string ToString()
+        public string ToString()
         {
             return $"{modulusOperator}";
         }

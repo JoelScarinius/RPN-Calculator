@@ -1,10 +1,12 @@
-﻿namespace RPN_Calculator.Model
+﻿using RPN_Calculator.View;
+
+namespace RPN_Calculator.Model
 {
-    public class Operator : Token
+    public class Operator : IToken
     {
-        public virtual double Calculate(double operand1, double operand2)
-        {
-            return operand1;
-        }
+        private double operand;
+        public double Process(IStack stack) { return operand; }
+
+        public string ToString() { return "Operator"; }
     }
 }

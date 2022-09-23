@@ -1,21 +1,24 @@
-﻿namespace RPN_Calculator.Model
+﻿using RPN_Calculator.View;
+
+namespace RPN_Calculator.Model
 {
-    public class Operand : Token
+    public class Operand : IToken
     {
-        private double doubleOperand;
+        private double operand;
 
         public Operand() { }
 
-        public Operand(double doubleOperand)
+        public Operand(double operand)
         {
-            this.doubleOperand = doubleOperand;
+            this.operand = operand;
         }
 
-        public double GetOperand() => doubleOperand;
+        public double GetOperand() => operand;
 
-        public override string ToString()
+        public string ToString()
         {
-            return $"{doubleOperand}";
+            return $"{operand}";
         }
+        public double Process(IStack stack) { return operand; }
     }
 }

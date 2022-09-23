@@ -11,6 +11,7 @@ namespace RPN_Calculator
 
             CalculatorController controller = new CalculatorController(view);
 
+            Stack<IToken> stack = new Stack<IToken>();
         }
     }
 }

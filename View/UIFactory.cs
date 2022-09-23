@@ -1,4 +1,4 @@
-﻿namespace RPN_Calculator.Model
+﻿namespace RPN_Calculator.View
 {
     public class Token
     {

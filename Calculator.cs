@@ -9,9 +9,9 @@ namespace RPN_Calculator
         {
             MainView view = new MainView();
 
-            CalculatorController controller = new CalculatorController(view);
-
-            Stack<IToken> stack = new Stack<IToken>();
+            TokenStack stack = new TokenStack();
+            CalculatorController controller = new CalculatorController(view, stack);
+            controller.Run();
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         public MainView() { }
 
-        public void Write(string message) { Console.Write(message); }
+        public void Write(string message) { Console.WriteLine(message); }
 
         public void WriteLine(string message) { Console.WriteLine(message); }
 
@@ -20,7 +20,6 @@
 
         public void ReadInput(ref string? expression)
         {
-            Console.Clear();
             expression = Console.ReadLine();
         }
 

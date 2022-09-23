@@ -1,6 +1,4 @@
-﻿using RPN_Calculator.View;
-
-namespace RPN_Calculator.Model
+﻿namespace RPN_Calculator.Model.Operators
 {
     public class AddOperator : Operator
     {
@@ -10,7 +8,7 @@ namespace RPN_Calculator.Model
             addOperator = expression;
         }
 
-        public double Process(IStack stack)
+        public override double Process(IStack stack)
         {
             double operand2 = stack.Pop().Process(stack);
             double operand1 = stack.Pop().Process(stack);
@@ -18,7 +16,7 @@ namespace RPN_Calculator.Model
             return sum;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return $"{addOperator}";
         }

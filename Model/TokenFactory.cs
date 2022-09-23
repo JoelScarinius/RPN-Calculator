@@ -1,9 +1,13 @@
 ﻿using RPN_Calculator.Model;
+using RPN_Calculator.Model.Operators;
+
 
 namespace RPN_Calculator.Controller
 {
 	public class TokenFactory
 	{
+		//private TokenStack stack;
+
 		public static IToken GetToken(string expression)
 		{
 			IToken token = null;

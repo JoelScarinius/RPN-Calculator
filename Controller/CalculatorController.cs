@@ -1,29 +1,30 @@
-﻿using RPN_Calculator.Model;
-using RPN_Calculator.View;
+﻿using RPN_Calculator.View;
 
 namespace RPN_Calculator.Controller
 {
     public class CalculatorController
     {
         public MainView View { get; protected set; }
-        private bool isDone;
+        private bool isDone = false;
         private string? expression;
         private string[] expressionList;
         private double result = 0;
+        private TokenStack stack;
 
         /// <param name="view">Mainview</param>
 
-        public CalculatorController(MainView view)
+        public CalculatorController(MainView view, TokenStack stack)
         {
             View = view;
-            isDone = false;
-            Run();
+            this.stack = stack;
+            //Run();
         }
 
-        private void Run()
+        public void Run()
         {
             while (!isDone)
             {
+                View.Clear();
                 View.DisplayStartMessage();
                 View.ReadInput(ref expression);
                 if (expression == "" || expression == null)
@@ -32,11 +33,17 @@ namespace RPN_Calculator.Controller
                     continue;
                 }
                 TrimInput(expression, ref expressionList);
+
                 foreach (string tokenExpression in expressionList)
                 {
                     IToken token = TokenFactory.GetToken(tokenExpression);
-                    //IStack.stack.Push(token);
+                    stack.Push(token);
                 }
+
+                result = stack.Pop().Process(stack);
+
+                View.PrintResult(result);
+
                 View.DisplayPause();
             }
             View.WriteLine("\nThe user exited the application");

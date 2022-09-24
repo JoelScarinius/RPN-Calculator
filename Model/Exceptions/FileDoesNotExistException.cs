@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace Workshop3.Exceptions
+﻿
+namespace RPN_Calculator.Exceptions
 {
     /// <summary>
     /// This class represents an exception for a file that doesn't exists in the file system.

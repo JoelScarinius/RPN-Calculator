@@ -1,6 +1,7 @@
-﻿using RPN_Calculator.Model;
+﻿using RPN_Calculator.Exceptions;
+using RPN_Calculator.Model;
 using RPN_Calculator.Model.Operators;
-
+using Exception = RPN_Calculator.Exceptions.Exception;
 
 namespace RPN_Calculator.Controller
 {
@@ -25,8 +26,13 @@ namespace RPN_Calculator.Controller
 					}
 					catch (Exception)
 					{
-
+						throw new InvalidTokenException(expression);
 					}
+					//catch (InvalidTokenException ex)
+					//{
+					//    Console.WriteLine($"Exception: {ex.Message}");
+					//    Console.WriteLine($"InvalidToken: {ex.InvalidToken}");
+					//}
 					break;
 			}
 			return token;

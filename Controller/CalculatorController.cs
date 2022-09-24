@@ -1,4 +1,6 @@
-﻿using RPN_Calculator.View;
+﻿using RPN_Calculator.Exceptions;
+using RPN_Calculator.View;
+using DivideByZeroException = RPN_Calculator.Exceptions.DivideByZeroException;
 
 namespace RPN_Calculator.Controller
 {
@@ -39,11 +41,17 @@ namespace RPN_Calculator.Controller
                     IToken token = TokenFactory.GetToken(tokenExpression);
                     stack.Push(token);
                 }
+                try
+                {
+                    result = stack.Pop().Process(stack);
+                    View.PrintResult(result);
+                }
 
-                result = stack.Pop().Process(stack);
-
-                View.PrintResult(result);
-
+                catch (DivideByZeroException ex)
+                {
+                    Console.WriteLine($"Exception: {ex.Message}");
+                    Console.WriteLine($"Operand2: {ex.Operand2}");
+                }
                 View.DisplayPause();
             }
             View.WriteLine("\nThe user exited the application");

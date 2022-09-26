@@ -1,21 +1,22 @@
 ﻿namespace RPN_Calculator.Exceptions
 {
     /// <summary>
-    /// This class represents an exception that occurs when the user tries to divide any number by zero.
+    /// This class represents an exception for a file that doesn't exists in the file system.
     /// </summary>
-    public class Exception : SystemException
+    public class InvalidOperationException : Exception
     {
         /// <summary>The name of the file.</summary>
-        public string Message { get; private set; }
 
         /// <summary>
         /// The constructor accepts an error message and a file name as parameters.
         /// </summary>
         /// <param name="message">The error message.</param>
         /// <param name="operand1">The operand1 that is not allowed to be zero.</param>
-        public Exception(string message)
+
+        public InvalidOperationException(string message)
+            : base($"InvalidOperationException: {message}")
         {
-            Message = message;
+            //Console.Write($"InvalidOperationException: {message}");
         }
     }
 }

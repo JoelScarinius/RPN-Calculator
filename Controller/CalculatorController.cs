@@ -4,19 +4,24 @@ namespace RPN_Calculator.Controller
 {
     public class CalculatorController
     {
-        public MainView View { get; protected set; }
+        //public IUserInterface View { get; protected set; }
+        private MainView View;
+        //private MainView View { get; protected set; }
         private bool isDone = false;
         private string? stringToken;
         private string[] stringTokenList;
-        private double result = 0;
+        //private double result = 0;
+        //private ICalculator calc;
         private TokenStack stack;
 
         /// <param name="view">Mainview</param>
 
         public CalculatorController(MainView view, TokenStack stack)
+        //public CalculatorController(IUserInterface view, TokenStack stack)
         {
             View = view;
             this.stack = stack;
+            //this.calc = calc;
             //Run();
         }
 
@@ -27,11 +32,15 @@ namespace RPN_Calculator.Controller
                 View.Clear();
                 View.DisplayStartMessage();
                 View.ReadInput(ref stringToken);
+                //string stringToken = View.ReadInput();
                 if (stringToken == "" || stringToken == null)
                 {
                     isDone = true;
                     continue;
                 }
+
+                //calc.Calculate(stringToken);
+
                 TrimInput(stringToken, ref stringTokenList);
 
                 foreach (string tokenExpression in stringTokenList)
@@ -41,7 +50,7 @@ namespace RPN_Calculator.Controller
                 }
                 try
                 {
-                    result = stack.Pop().Process(stack);
+                    double result = stack.Pop().Process(stack);
                     View.PrintResult(result);
                 }
                 catch (Exception ex)

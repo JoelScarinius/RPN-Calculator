@@ -9,9 +9,14 @@ namespace RPN_Calculator
         {
             MainView view = new MainView();
 
+            //IUserInterface view = UIFactory.GetUI(args);
+
+
+
+
             TokenStack stack = new TokenStack();
             CalculatorController controller = new CalculatorController(view, stack);
-            controller.Run();
+            controller.Run(); // Fråga
 
 
         }

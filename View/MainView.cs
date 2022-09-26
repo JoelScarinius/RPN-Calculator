@@ -9,7 +9,7 @@
         public void WriteLine(string message) { Console.WriteLine(message); }
 
 
-        public string ReadLine() => Console.ReadLine();
+        public string? ReadLine() => Console.ReadLine();
 
         public void Clear() { Console.Clear(); }
 
@@ -18,6 +18,7 @@
             Console.Write("Enter RPN-expression <return> (empty string = exit): ");
         }
 
+        //public string? ReadInput() => Console.ReadLine();
         public void ReadInput(ref string? expression)
         {
             expression = Console.ReadLine();

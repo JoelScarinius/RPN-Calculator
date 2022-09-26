@@ -1,6 +1,8 @@
-﻿namespace RPN_Calculator.Model
+﻿namespace RPN_Calculator.View
 {
-    public class UIFactory
+    public interface IUserInterface
     {
+        //IUserInterface GetUI(string[] args);
+        string? ReadInput();
     }
 }

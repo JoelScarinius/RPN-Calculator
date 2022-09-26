@@ -1,6 +1,4 @@
-﻿using RPN_Calculator.Exceptions;
-using RPN_Calculator.View;
-using DivideByZeroException = RPN_Calculator.Exceptions.DivideByZeroException;
+﻿using RPN_Calculator.View;
 
 namespace RPN_Calculator.Controller
 {
@@ -8,8 +6,8 @@ namespace RPN_Calculator.Controller
     {
         public MainView View { get; protected set; }
         private bool isDone = false;
-        private string? expression;
-        private string[] expressionList;
+        private string? stringToken;
+        private string[] stringTokenList;
         private double result = 0;
         private TokenStack stack;
 
@@ -28,15 +26,15 @@ namespace RPN_Calculator.Controller
             {
                 View.Clear();
                 View.DisplayStartMessage();
-                View.ReadInput(ref expression);
-                if (expression == "" || expression == null)
+                View.ReadInput(ref stringToken);
+                if (stringToken == "" || stringToken == null)
                 {
                     isDone = true;
                     continue;
                 }
-                TrimInput(expression, ref expressionList);
+                TrimInput(stringToken, ref stringTokenList);
 
-                foreach (string tokenExpression in expressionList)
+                foreach (string tokenExpression in stringTokenList)
                 {
                     IToken token = TokenFactory.GetToken(tokenExpression);
                     stack.Push(token);
@@ -46,20 +44,19 @@ namespace RPN_Calculator.Controller
                     result = stack.Pop().Process(stack);
                     View.PrintResult(result);
                 }
-
-                catch (DivideByZeroException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"Exception: {ex.Message}");
-                    Console.WriteLine($"Operand2: {ex.Operand2}");
+                    Console.WriteLine($"Exception: " + ex.Message);
                 }
+
                 View.DisplayPause();
             }
             View.WriteLine("\nThe user exited the application");
         }
 
-        private void TrimInput(string expression, ref string[] expressionList)
+        private void TrimInput(string stringToken, ref string[] stringTokenList)
         {
-            expressionList = expression.Split(' ', expression.Length);
+            stringTokenList = stringToken.Split(' ', stringToken.Length);
         }
 
     }

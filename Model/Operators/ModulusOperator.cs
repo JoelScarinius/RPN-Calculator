@@ -12,6 +12,11 @@
         {
             double operand2 = stack.Pop().Process(stack);
             double operand1 = stack.Pop().Process(stack);
+            if (operand2 == 0)
+            {
+                string message = $"{operand1:f}{ToString()}{operand2:f}";
+                throw new DivideByZeroException(message);
+            }
             double sum = operand1 % operand2;
             return sum;
         }

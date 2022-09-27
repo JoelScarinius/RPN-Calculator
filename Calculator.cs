@@ -1,4 +1,6 @@
 ﻿using RPN_Calculator.Controller;
+using RPN_Calculator.Model;
+using RPN_Calculator.Model.Interfaces;
 using RPN_Calculator.View;
 
 namespace RPN_Calculator
@@ -7,15 +9,12 @@ namespace RPN_Calculator
     {
         static void Main(string[] args)
         {
-            MainView view = new MainView();
 
-            //IUserInterface view = UIFactory.GetUI(args);
+            IUserInterface view = UIFactory.GetUI(args);
 
+            ICalculator calc = new RPNCalculator();
 
-
-
-            TokenStack stack = new TokenStack();
-            CalculatorController controller = new CalculatorController(view, stack);
+            CalculatorController controller = new CalculatorController(view, calc);
             controller.Run(); // Fråga
 
 

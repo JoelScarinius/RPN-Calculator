@@ -2,7 +2,13 @@
 {
     public interface IUserInterface
     {
-        //IUserInterface GetUI(string[] args);
         string? ReadInput();
+
+        void PrintResult(double result);
+
+        void PrintResult(string result);
+
+        void Dispose();
+
     }
 }

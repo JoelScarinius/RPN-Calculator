@@ -13,10 +13,8 @@
         /// <param name="message">The error message.</param>
         /// <param name="operand1">The operand1 that is not allowed to be zero.</param>
 
-        public InvalidOperationException(string message)
-            : base($"InvalidOperationException: {message}")
-        {
-            //Console.Write($"InvalidOperationException: {message}");
-        }
+        public InvalidOperationException()
+            : base($"InvalidOperationException")
+        { }
     }
 }

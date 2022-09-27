@@ -6,8 +6,6 @@ namespace RPN_Calculator.Controller
 {
 	public class TokenFactory
 	{
-		//private TokenStack stack;
-
 		public static IToken GetToken(string stringToken)
 		{
 			IToken token = null;

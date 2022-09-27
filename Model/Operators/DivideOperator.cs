@@ -22,10 +22,6 @@ namespace RPN_Calculator.Model.Operators
             double sum = operand1 / operand2;
             return sum;
         }
-
-        public override string ToString()
-        {
-            return $"{divideOperator}";
-        }
+        public override string ToString() => $"{divideOperator}";
     }
 }

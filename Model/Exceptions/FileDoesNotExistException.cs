@@ -16,8 +16,6 @@ namespace RPN_Calculator.Exceptions
         /// <param name="fileName">The name of the file.</param>
         public FileDoesNotExistException(string message, string fileName)
             : base(message)
-        {
-            FileName = fileName;
-        }
+        { }
     }
 }

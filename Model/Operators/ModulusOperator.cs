@@ -23,9 +23,6 @@ namespace RPN_Calculator.Model.Operators
             return sum;
         }
 
-        public override string ToString()
-        {
-            return $"{modulusOperator}";
-        }
+        public override string ToString() => $"{modulusOperator}";
     }
 }

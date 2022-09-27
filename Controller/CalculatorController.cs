@@ -1,72 +1,44 @@
-﻿using RPN_Calculator.View;
+﻿using RPN_Calculator.Model.Interfaces;
+using RPN_Calculator.View;
 
 namespace RPN_Calculator.Controller
 {
     public class CalculatorController
     {
-        //public IUserInterface View { get; protected set; }
-        private MainView View;
-        //private MainView View { get; protected set; }
+        public IUserInterface View;
         private bool isDone = false;
-        private string? stringToken;
-        private string[] stringTokenList;
-        //private double result = 0;
-        //private ICalculator calc;
-        private TokenStack stack;
+        private ICalculator calc;
 
         /// <param name="view">Mainview</param>
 
-        public CalculatorController(MainView view, TokenStack stack)
-        //public CalculatorController(IUserInterface view, TokenStack stack)
+        public CalculatorController(IUserInterface view, ICalculator calc)
         {
             View = view;
-            this.stack = stack;
-            //this.calc = calc;
-            //Run();
+            this.calc = calc;
         }
 
         public void Run()
         {
             while (!isDone)
             {
-                View.Clear();
-                View.DisplayStartMessage();
-                View.ReadInput(ref stringToken);
-                //string stringToken = View.ReadInput();
+                string? stringToken = View.ReadInput();
                 if (stringToken == "" || stringToken == null)
                 {
                     isDone = true;
                     continue;
                 }
 
-                //calc.Calculate(stringToken);
-
-                TrimInput(stringToken, ref stringTokenList);
-
-                foreach (string tokenExpression in stringTokenList)
-                {
-                    IToken token = TokenFactory.GetToken(tokenExpression);
-                    stack.Push(token);
-                }
                 try
                 {
-                    double result = stack.Pop().Process(stack);
+                    double result = calc.Calculate(stringToken);
                     View.PrintResult(result);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Exception: " + ex.Message);
+                    View.PrintResult($"Exception: " + ex.Message);
                 }
-
-                View.DisplayPause();
             }
-            View.WriteLine("\nThe user exited the application");
+            View.Dispose();
         }
-
-        private void TrimInput(string stringToken, ref string[] stringTokenList)
-        {
-            stringTokenList = stringToken.Split(' ', stringToken.Length);
-        }
-
     }
 }

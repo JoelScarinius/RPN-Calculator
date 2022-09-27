@@ -1,32 +1,44 @@
 ﻿using RPN_Calculator.Controller;
+using RPN_Calculator.Model.Interfaces;
+using InvalidOperationException = RPN_Calculator.Exceptions.InvalidOperationException;
 
 namespace RPN_Calculator.Model
 {
     public class RPNCalculator : ICalculator
     {
-
-        private string? stringToken;
         private string[] stringTokenList;
 
-        private RPNCalculator() { }
+        public RPNCalculator() { }
 
-        public double Calculate()
+        public double Calculate(string stringToken)
         {
             TokenStack stack = new TokenStack();
 
             TrimInput(stringToken, ref stringTokenList);
 
+            IToken token = null;
             foreach (string tokenExpression in stringTokenList)
             {
-                IToken token = TokenFactory.GetToken(tokenExpression);
+                token = TokenFactory.GetToken(tokenExpression);
                 stack.Push(token);
             }
 
-            return stack.Pop().Process(stack);
+            // Simplify?
+            string stringT = stringToken;
+            char tokenChar = stringT[stringT.Length - 1];
+            if (char.IsDigit(tokenChar))
+            {
+                throw new InvalidOperationException();
+            }
+
+            token = stack.Pop();
+
+            return token.Process(stack);
         }
 
         private static void TrimInput(string stringToken, ref string[] stringTokenList)
         {
+            stringToken = stringToken.Replace(".", ",");
             stringTokenList = stringToken.Split(' ', stringToken.Length);
         }
     }

@@ -14,7 +14,6 @@
         /// <param name="operand1">The operand1 that is not allowed to be zero.</param>
         public DivideByZeroException(string message)
             : base($"Not possible to divide by zero: {message}")
-        {
-        }
+        { }
     }
 }

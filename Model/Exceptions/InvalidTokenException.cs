@@ -15,8 +15,6 @@
 
         public InvalidTokenException(string message)
             : base($"InvalidTokenException: {message}")
-        {
-            //Console.Write($"InvalidTokenException: {message}");
-        }
+        { }
     }
 }

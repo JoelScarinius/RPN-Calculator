@@ -16,9 +16,6 @@
             return sum;
         }
 
-        public override string ToString()
-        {
-            return $"{addOperator}";
-        }
+        public override string ToString() => $"{addOperator}";
     }
 }

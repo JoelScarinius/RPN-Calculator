@@ -9,15 +9,12 @@ namespace RPN_Calculator
     {
         static void Main(string[] args)
         {
-
             IUserInterface view = UIFactory.GetUI(args);
 
             ICalculator calc = new RPNCalculator();
 
             CalculatorController controller = new CalculatorController(view, calc);
-            controller.Run(); // Fråga
-
-
+            controller.Run();
         }
     }
 }

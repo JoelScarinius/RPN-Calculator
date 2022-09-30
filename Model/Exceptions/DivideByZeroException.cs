@@ -5,13 +5,10 @@
     /// </summary>
     public class DivideByZeroException : Exception
     {
-        /// <summary>The name of the file.</summary>
-
         /// <summary>
-        /// The constructor accepts an error message and a file name as parameters.
+        /// The constructor accepts an error message as parameter.
         /// </summary>
         /// <param name="message">The error message.</param>
-        /// <param name="operand1">The operand1 that is not allowed to be zero.</param>
         public DivideByZeroException(string message)
             : base($"Not possible to divide by zero: {message}")
         { }

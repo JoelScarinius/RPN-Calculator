@@ -1,20 +1,20 @@
 ﻿public class TokenStack : IStack
 {
-    private Stack<IToken> tStack;
+    private Stack<IToken> tokenStack;
 
     public TokenStack()
     {
-        tStack = new Stack<IToken>();
+        tokenStack = new Stack<IToken>();
     }
 
     public void Push(IToken token)
     {
-        tStack.Push(token);
+        tokenStack.Push(token);
     }
 
     public IToken Pop()
     {
-        return tStack.Pop();
+        return tokenStack.Pop();
     }
 
 }

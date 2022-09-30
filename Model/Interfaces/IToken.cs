@@ -1,6 +1,9 @@
-﻿public interface IToken
+﻿namespace RPN_Calculator.Model.Interfaces
 {
-    double Process(IStack stack);
+    public interface IToken
+    {
+        double Process(IStack stack);
 
-    string ToString();
+        string ToString();
+    }
 }

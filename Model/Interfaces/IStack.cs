@@ -1,7 +1,10 @@
-﻿public interface IStack
+﻿namespace RPN_Calculator.Model.Interfaces
 {
-    void Push(IToken item);
+    public interface IStack
+    {
+        void Push(IToken item);
 
-    IToken Pop();
+        IToken Pop();
 
+    }
 }

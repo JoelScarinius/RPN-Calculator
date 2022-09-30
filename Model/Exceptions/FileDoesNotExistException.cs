@@ -1,8 +1,7 @@
-﻿
-namespace RPN_Calculator.Exceptions
+﻿namespace RPN_Calculator.Exceptions
 {
     /// <summary>
-    /// This class represents an exception for a file that doesn't exists in the file system.
+    /// This class represents an exception for when a file doesn't exists in the file system.
     /// </summary>
     public class FileDoesNotExistException : Exception
     {
@@ -16,6 +15,8 @@ namespace RPN_Calculator.Exceptions
         /// <param name="fileName">The name of the file.</param>
         public FileDoesNotExistException(string message, string fileName)
             : base(message)
-        { }
+        {
+            FileName = fileName;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace RPN_Calculator.Model
+﻿using RPN_Calculator.Model.Interfaces;
+
+namespace RPN_Calculator.Model
 {
     /// <summary>
     /// This class overrides the in-built methods for a stack and implements them. 

@@ -1,4 +1,4 @@
-﻿namespace RPN_Calculator.Exceptions
+﻿namespace RPN_Calculator.Model.Exceptions
 {
     /// <summary>
     /// This class represents an exception for when a file doesn't exists in the file system.

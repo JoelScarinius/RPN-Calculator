@@ -1,4 +1,4 @@
-﻿using FileDoesNotExistException = RPN_Calculator.Exceptions.FileDoesNotExistException;
+﻿using FileDoesNotExistException = RPN_Calculator.Model.Exceptions.FileDoesNotExistException;
 
 namespace RPN_Calculator.View.IO
 {

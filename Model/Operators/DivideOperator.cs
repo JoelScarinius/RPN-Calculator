@@ -1,4 +1,4 @@
-﻿using DivideByZeroException = RPN_Calculator.Exceptions.DivideByZeroException;
+﻿using DivideByZeroException = RPN_Calculator.Model.Exceptions.DivideByZeroException;
 using IStack = RPN_Calculator.Model.Interfaces.IStack;
 
 namespace RPN_Calculator.Model.Operators

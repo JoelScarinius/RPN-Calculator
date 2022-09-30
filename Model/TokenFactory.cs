@@ -1,4 +1,5 @@
-﻿using RPN_Calculator.Exceptions;
+﻿using RPN_Calculator.Model.Exceptions;
+using RPN_Calculator.Model.Interfaces;
 using RPN_Calculator.Model.Operators;
 
 namespace RPN_Calculator.Model

@@ -1,5 +1,5 @@
 ﻿using RPN_Calculator.Model.Interfaces;
-using InvalidOperationException = RPN_Calculator.Exceptions.InvalidOperationException;
+using InvalidOperationException = RPN_Calculator.Model.Exceptions.InvalidOperationException;
 
 namespace RPN_Calculator.Model
 {

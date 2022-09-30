@@ -1,4 +1,4 @@
-﻿namespace RPN_Calculator.Exceptions
+﻿namespace RPN_Calculator.Model.Exceptions
 {
     /// <summary>
     /// This class represents an exception that occurs when the user tries to divide any number by zero.

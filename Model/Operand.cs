@@ -9,8 +9,8 @@
             this.operand = operand;
         }
 
-        public string ToString() => $"{operand}";
-
         public double Process(IStack stack) => operand;
+
+        public string ToString() => $"{operand}";
     }
 }

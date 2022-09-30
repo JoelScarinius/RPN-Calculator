@@ -24,7 +24,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="RPN_Calculator.Controller.TokenFactory">
+  <Class Name="RPN_Calculator.Model.TokenFactory">
     <Position X="17.25" Y="4.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

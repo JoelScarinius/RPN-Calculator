@@ -2,15 +2,25 @@
 
 namespace RPN_Calculator.View.IO
 {
+    /// <summary>
+    /// This class contains all methods and attributes needed for writing to 
+    /// and reading to a file. 
+    /// The class also inherits method prototypes from IUserInterface
+    /// </summary>
+
     public class FileUI : IUserInterface
     {
-        /// <summary>Represents the text file to read.</summary>
 
         public StreamReader input;
         public StreamWriter output;
 
         private string inputFileName;
         private string outputFileName;
+
+        /// <summary>
+        /// This constructor opens a input file to read from 
+        /// and creates an output file to write to.
+        /// </summary>
 
         public FileUI(string[] args)
         {
@@ -44,6 +54,10 @@ namespace RPN_Calculator.View.IO
             string? line = input.ReadLine();
             return line;
         }
+
+        /// <summary>
+        /// This Method is used to close the opened files.
+        /// </summary>
 
         public void Dispose()
         {

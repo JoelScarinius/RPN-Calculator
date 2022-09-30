@@ -1,10 +1,12 @@
 ﻿namespace RPN_Calculator.View.IO
 {
+    /// <summary>
+    /// This Class contains methods that is needed for the console user interface.
+    /// The class also inherits method prototypes from IUserInterface
+    /// </summary>
+
     public class ConsoleUI : IUserInterface
     {
-        // Ha kvar?
-        //private TextReader input;
-        //private TextWriter output;
 
         public ConsoleUI(string[] args) { }
 

@@ -24,14 +24,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TokenStack" BaseTypeListCollapsed="true">
-    <Position X="14" Y="4.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAACAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Model\TokenStack.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RPN_Calculator.Controller.TokenFactory">
     <Position X="17.25" Y="4.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

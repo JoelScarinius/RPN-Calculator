@@ -1,7 +1,7 @@
 ﻿namespace RPN_Calculator.Model
 {
     /// <summary>
-    /// This class overides the in-built methods for a stack and implements them. 
+    /// This class overrides the in-built methods for a stack and implements them. 
     /// The class also inherits from IStack where the prototypes for the stack are.
     /// </summary>
 

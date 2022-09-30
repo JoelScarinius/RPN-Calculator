@@ -1,20 +1,28 @@
-﻿public class TokenStack : IStack
+﻿namespace RPN_Calculator.Model
 {
-    private Stack<IToken> tokenStack;
+    /// <summary>
+    /// This class overides the in-built methods for a stack and implements them. 
+    /// The class also inherits from IStack where the prototypes for the stack are.
+    /// </summary>
 
-    public TokenStack()
+    public class TokenStack : IStack
     {
-        tokenStack = new Stack<IToken>();
-    }
+        private Stack<IToken> tokenStack;
 
-    public void Push(IToken token)
-    {
-        tokenStack.Push(token);
-    }
+        public TokenStack()
+        {
+            tokenStack = new Stack<IToken>();
+        }
 
-    public IToken Pop()
-    {
-        return tokenStack.Pop();
-    }
+        public void Push(IToken token)
+        {
+            tokenStack.Push(token);
+        }
 
+        public IToken Pop()
+        {
+            return tokenStack.Pop();
+        }
+
+    }
 }
